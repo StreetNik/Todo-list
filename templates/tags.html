@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="header">
+    <h1>Tags list</h1>
+    <button onclick="window.location.href='{% url "new-tag" %}';" class="btn btn-success right">Add tag</button>
+  </div>
+  <div class="content_main">
+    {% for tag in tag_list %}
+      <div class="task">
+        <div class="tags_top_section">
+          <h3 class="tags_top_section_item">{{ tag.name }}</h3>
+          <h4 class="tags_top_section_item"><a href="{% url "update-tag" pk=tag.id %}">Update</a></h4>
+          <h4 class="tags_top_section_item"><a href="{% url "delete-tag" pk=tag.id %}">Delete</a></h4>
+        </div>
+        </div>
+        <div class="line"></div>
+      </div>
+    {% endfor %}
+
+  </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% load bootstrap5 %}
+  {% load static %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <title>Document</title>
+</head>
+<body>
+
+<main>
+{% block sidebar %}
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidebar">
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a class="nav-link link-light" href="{% url "home" %}">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link link-light" href="{% url "tags" %}">TAGS</a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}
+
+<div class="content">
+  {% block content %}
+
+  {% endblock %}
+</div>
+</main>
+</body>
+</html>
